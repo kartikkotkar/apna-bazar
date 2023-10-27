@@ -26,6 +26,9 @@ const userSchema = new Schema({
         type: String,
         default: "prefer not to say",
     },
+},
+{
+    timestamps: true,
 });
 
 const User = model("User", userSchema);
