@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import User from './modules/user.js';
 
 import Product from "./modules/product.js";
+import Order from "./modules/order.js";
 
 
 dotenv.config();
@@ -122,30 +123,30 @@ app.post('/product', async (req, res) => {
 });
 //get/product/:id
 
-app.get('/product/:_id', async (req, res)=> {
-    const {_id} = req.params;
-    const product = await Product.find({_id: _id})
+app.get('/product/:_id', async (req, res) => {
+    const { _id } = req.params;
+    const product = await Product.find({ _id: _id })
 
-res.json({
-    success: true,
-    date: product,
-    message: 'product fetched successfully'
-})
+    res.json({
+        success: true,
+        date: product,
+        message: 'product fetched successfully'
+    })
 });
 
-    
+
 
 
 //put/update
 
-app.put('/product/:_id', async(req, res) =>{
+app.put('/products/:id', async (req, res) => {
 
-    const { _id} = req.params;
+    const { id } = req.params;
 
     const { name, description, price, image, category, brand } = req.body;
 
-    
-    const updateProduct =  await Product.updateOne({ _id: _id }, {
+
+    await Product.updateOne({ _id: id }, {
         $set: {
             name: name,
             description: description,
@@ -155,16 +156,18 @@ app.put('/product/:_id', async(req, res) =>{
             brand: brand,
         }
     })
-    
+
+    const updateProducts = await Product.findById(id);
+
     res.json({
         success: true,
-        data: updateProduct,
+        data: updateProducts,
         message: 'update successfully',
     })
 });
 
 
-//-----delete Product by id------
+//delete Product by id
 app.delete('/product/:_id', async (req, res) => {
     const { _id } = req.params;
     await Product.deleteOne({ _id: _id });
@@ -175,7 +178,7 @@ app.delete('/product/:_id', async (req, res) => {
     })
 });
 
-//-----search Product ------
+//search Product /search?=Sam
 
 app.get('/products/search', async (req, res) => {
     const { q } = req.query;
@@ -184,6 +187,102 @@ app.get('/products/search', async (req, res) => {
         success: true,
         data: searchpro,
         message: 'Product searched SuccessFully .'
+    })
+})
+
+// _-_-_-_-POST /order_-_-_-_-_-
+
+
+app.post('/order', async (req, res) => {
+
+    const { user, product, quantity, deliveryCharges, shippingAddress } = req.body;
+
+    try{
+
+    const order = new Order({
+        user,
+        product,
+        quantity,
+        shippingAddress,
+        deliveryCharges,
+    });
+
+    const saveOrder = await order.save();
+     res.json({
+        success: true,
+        data: saveOrder,
+        message: "order created successfully"
+     })
+
+   }catch(e){
+    res.json({
+        success: false,
+        message: e.message
+    })
+   }
+});
+
+
+
+// GET /ORDER/:ID
+app.get('/order/:id', async (req, res) =>{
+    const {id} = req.params;
+
+    const order = await Order.findById(id).populate("user product");
+
+    order.user.password = undefined;
+   
+
+    res.json({
+        success: true,
+        data: order,
+        message: "order fetched successfully"
+    })
+});
+
+//GET /orders/user/:id
+
+app.get("/orders/user/:id", async(req, res) =>{
+    const {id} = req.params;
+
+    const orders = await Order.find({user: id}).populate("user product");
+  
+
+    res.json({
+        success: true,
+        data: orders,
+        message: "orders fetched successfully"
+    });
+});
+
+
+//PARH/order/satuse/status/:id
+app.patch("/order/status/:id", async(req, res) =>{
+    const {id} = req.params;
+
+    const {status} = req.body;
+
+    await Order.updateOne({_id: id}, {$set: {status: status}});
+
+    res.json({
+        success: true,
+        message: "order status updated successfully"
+    })
+})
+
+
+
+//GET/orders
+app.get('/orders', async(req, res) =>{
+    const orders = await Order.find().populate("user product");
+    orders.forEach((order) =>{
+        order.user.password = undefined;
+    });
+
+    res.json({
+        success: true,
+        data: orders,
+        message: "order fetched successfully"
     })
 })
 
