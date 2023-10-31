@@ -1,0 +1,19 @@
+.login-from {
+    width: 200px;
+    height: fit-content;
+    background-color:antiquewhite;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 30px 0px;
+    box-shadow: 3px 2px 5px 0px  goldenrod;
+    border: solid 1px black;
+    display: block;
+
+}
+
+.login-btn{
+    display: block;
+    margin: 1px auto;
+    width: 100px;
+}
+

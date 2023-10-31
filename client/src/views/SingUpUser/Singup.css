@@ -1,11 +1,12 @@
 .signup-from{
-    width: 210px;
-    height: 280px;
-    background-color: #ad9a9a;
+    width: 200px;
+    height: 300px;
+    background-color:antiquewhite;
     margin: 30px auto;
     padding: 10px;
     border-radius: 15px;
     box-shadow: 3px 2px 5px 0px  goldenrod;
+    border: solid 1px black;
     display: block;
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from 'axios';
 import "./Singup.css"
+import {Link} from "react-router-dom";
 
 function Signup() {
 
@@ -11,49 +12,49 @@ function Signup() {
     const [address, setAddress] = useState("");
     const [gender, setGender] = useState("female");
 
-    const signupUser = async() => {
-        if(!name){
+    const signupUser = async () => {
+        if (!name) {
             alert("Nmae is requred");
             return;
         }
 
-        if(!email){
+        if (!email) {
             alert("Email is requred");
             return;
         }
 
-        if(!password){
+        if (!password) {
             alert("Password is requred");
             return;
         }
 
-        if(!mobile){
+        if (!mobile) {
             alert("Mobile is requred");
             return;
         }
 
-        if(!address){
+        if (!address) {
             alert("Address is requred");
             return;
         }
 
         const response = await axios.post("/signup", {
-            name:name,
-            email:email,
-            password:password,
-            mobile:mobile,
-            address:address,
-            gender:gender
+            name: name,
+            email: email,
+            password: password,
+            mobile: mobile,
+            address: address,
+            gender: gender
         })
 
         alert(response?.data?.message);
 
-        if(response?.data?.success){
-           
+        if (response?.data?.success) {
+
             window.location.href = "/login";
         }
-            
-        
+
+
     };
 
     return (
@@ -146,9 +147,14 @@ function Signup() {
                 <button type="button"
                     className="btn singup-btn"
                     onClick={signupUser}>
-                
+
                     Singup
                 </button>
+
+                
+                <p className="text-right">
+                     <Link to="/login">Already have an account</Link>
+                   </p>
 
             </from>
         </div>
