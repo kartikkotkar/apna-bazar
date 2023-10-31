@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import axios from 'axios';
-import "./SignUpUser.css"
+import "./Singup.css"
 
-function SignUpUser() {
+function Signup() {
 
     const [name, setNmae] = useState("");
     const [email, setEmail] = useState("");
@@ -156,4 +156,4 @@ function SignUpUser() {
 }
 
 
-export default SignUpUser;
+export default Signup;

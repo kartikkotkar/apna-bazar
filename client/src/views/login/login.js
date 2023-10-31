@@ -1,11 +1,10 @@
-import React from "react"
-import "./login.css"
-
 function Login() {
+
     return (
-        <div>login</div>
-    )
-}
+        <>
+            <div>Login</div>
+        </>
+    );
+};
 
-
-export default Login
+export default Login;

@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Login from './views/login/login';
-
+import Login from './views/Login/Login';
+import Signup from './views/SingUpUser/Singup';
 import "./index.css"
-import SignUpUser from './views/SignUpUser/SignUpUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
 
     {
         path: '/signup',
-        element: <SignUpUser />
+        element: <Signup />
     }
 ])
 
