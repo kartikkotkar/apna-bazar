@@ -1,0 +1,16 @@
+.signup-from{
+    width: 250px;
+    height: 340px;
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 3px 2px 5px 0px  goldenrod;
+    display: block;
+}
+
+.singup-btn{
+    display: block;
+    margin: 1px auto;
+    width: 100px;
+}
