@@ -15,7 +15,7 @@ function Navbar() {
         <div className="navbar">
 
             <Link to="/" className="navbar-brand">
-                Apna Bazar.🛒🛍️
+                welcome To Apna-Bazar..💰🛍️
             </Link>
 
 
@@ -25,7 +25,7 @@ function Navbar() {
                 </Link>
 
                 <Link to="/Signup" className="navbar-link">
-                    Signup
+                    Sig-nup
                 </Link>
 
 
@@ -35,8 +35,8 @@ function Navbar() {
 
             </div>
 
-            <div>
-                Hello, {user.name || 'guest!'}
+            <div className="user-name">
+                Hello, {user.name || 'guest🤚'}
             </div>
 
             {

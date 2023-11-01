@@ -21,59 +21,59 @@ function Login() {
             window.location.href = "/"
         }
     }
-    useEffect(() =>{
+    useEffect(() => {
         const storageUser = JSON.parse(localStorage.getItem("user") || '{}');
-        
-        if(storageUser?.email){
+
+        if (storageUser?.email) {
             alert("You are alredy looged in!");
             window.location.href = "/";
         }
-        
-    }, [] )
+
+    }, [])
     return (
-        
-            <div>
-                <Navbar />
-                <from className="login-from">
-                    <h1 className="text-center">Login</h1>
 
+        <div className="bacground-image">
+            <Navbar />
+            <from className="login-from">
+                <h1 className="text-center">Login</h1>
+
+                <div>
                     <div>
-                        <div>
-                            <label htmlFor="email">Email</label>
-                            <input type="email"
-                                placeholder="Enter your email"
-                                id="email"
-                                className="from-control"
-                                value={email}
-                                onChange={(e) => {
-                                    setEmail(e.target.value);
-                                }} />
-                        </div>
-
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <input type="password"
-                                placeholder="Enter your password"
-                                id="password"
-                                className="from-control"
-                                value={password}
-                                onChange={(e) => {
-                                    setPassword(e.target.value);
-                                }} />
-                        </div>
+                        <label htmlFor="email" className="text-color">Email</label>
+                        <input type="email"
+                            placeholder="Enter your email"
+                            id="email"
+                            className="from-control"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }} />
                     </div>
 
-                    <button type="button" className="btn login-btn"
-                        onClick={Login} >
-                        Login
-                    </button>
+                    <div>
+                        <label htmlFor="password" className="text-color">Password</label>
+                        <input type="password"
+                            placeholder="Enter your password"
+                            id="password"
+                            className="from-control"
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }} />
+                    </div>
+                </div>
 
-                    <p className="text-right">
-                        <Link to="/signup">Create a new account?</Link>
-                    </p>
-                </from>
-            </div>
-        
+                <button type="button" className="btn login-btn"
+                    onClick={Login} >
+                    Login
+                </button>
+
+                <p className="text-right">
+                    <Link to="/signup" className="signup-message">Create a new account?</Link>
+                </p>
+            </from>
+        </div>
+
     );
 };
 

@@ -1,11 +1,18 @@
+.bacground-image{
+    background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }          
 .signup-from{
     width: 200px;
-    height: 300px;
-    background-color:antiquewhite;
+    height: 333px;
+    background-color:rgba(0, 0, 0, 0.373);
     margin: 30px auto;
     padding: 10px;
-    border-radius: 15px;
-    box-shadow: 3px 2px 5px 0px  goldenrod;
+    border-radius: 50px 0px;
+    box-shadow: 3px 2px 5px 0px rgb(0, 0, 0);
     border: solid 1px black;
     display: block;
 }

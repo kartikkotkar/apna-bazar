@@ -69,12 +69,12 @@ function Signup() {
     }, [] )
 
     return (
-        <div>
+        <div className="bacground-image">
             <Navbar />
             <from className="signup-from">
-                <h1 className="text-center">Sign Up</h1>
+                <h1 className="text-center">Sign-Up</h1>
                 <div>
-                    <label htmlFor="name">Nmae</label>
+                    <label htmlFor="name" className="text-color">Name</label>
                     <input type="text"
                         placeholder="Enter your name"
                         id="name"
@@ -86,7 +86,7 @@ function Signup() {
                 </div>
 
                 <div>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="text-color">Email</label>
                     <input type="email"
                         placeholder="Enter your email"
                         id="email"
@@ -96,9 +96,12 @@ function Signup() {
                             setEmail(e.target.value);
                         }} />
                 </div>
+                <div>
+                
+                </div>
 
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className="text-color">Password</label>
                     <input type="password"
                         placeholder="Enter your password"
                         id="password"
@@ -110,7 +113,7 @@ function Signup() {
                 </div>
 
                 <div>
-                    <label htmlFor="mobile">mobile</label>
+                    <label htmlFor="mobile" className="text-color">mobile</label>
                     <input type="mobile"
                         placeholder="Enter your mobile"
                         id="mobile"
@@ -122,7 +125,7 @@ function Signup() {
                 </div>
 
                 <div>
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address" className="text-color">Address</label>
                     <input type="address"
                         placeholder="Enter your address"
                         id="address"
@@ -142,7 +145,7 @@ function Signup() {
                             setGender("male");
                         }}
                     />
-                    <label htmlFor='male'>male</label>
+                    <label htmlFor='male' className="text-color">male</label>
 
 
                     <input type="radio"
@@ -153,7 +156,7 @@ function Signup() {
                             setGender("female");
                         }}
                     />
-                    <label htmlFor='female'>female</label>
+                    <label htmlFor='female' className="text-color">female</label>
                 </div>
 
                 <button type="button"
