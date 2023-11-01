@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState,  useEffect} from "react"
 import axios from 'axios';
 import "./Singup.css"
 import {Link} from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Signup() {
 
@@ -57,8 +58,19 @@ function Signup() {
 
     };
 
+    useEffect(() =>{
+        const storageUser = JSON.parse(localStorage.getItem("user") || '{}');
+        
+        if(storageUser?.email){
+            alert("You are alredy looged in!");
+            window.location.href = "/";
+        }
+        
+    }, [] )
+
     return (
         <div>
+            <Navbar />
             <from className="signup-from">
                 <h1 className="text-center">Sign Up</h1>
                 <div>

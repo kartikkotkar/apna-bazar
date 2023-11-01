@@ -1,0 +1,39 @@
+.navbar{
+    background-color:bisque;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+   
+ 
+}
+
+.navbar-brand{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.navbar-link{
+    text-decoration: none;
+    color: rgb(96, 165, 132);
+    font-size: 20px;
+    margin: 0px 20px;
+    transition: 1s;
+}
+
+.navbar-link:hover{
+    background-color: black;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 10px;
+    
+   
+}
+
+.navbar-logout{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    margin: 0px;
+    cursor: pointer;
+}

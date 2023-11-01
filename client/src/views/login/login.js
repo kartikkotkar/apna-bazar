@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -20,9 +21,19 @@ function Login() {
             window.location.href = "/"
         }
     }
+    useEffect(() =>{
+        const storageUser = JSON.parse(localStorage.getItem("user") || '{}');
+        
+        if(storageUser?.email){
+            alert("You are alredy looged in!");
+            window.location.href = "/";
+        }
+        
+    }, [] )
     return (
-        <>
+        
             <div>
+                <Navbar />
                 <from className="login-from">
                     <h1 className="text-center">Login</h1>
 
@@ -62,7 +73,7 @@ function Login() {
                     </p>
                 </from>
             </div>
-        </>
+        
     );
 };
 
