@@ -31,7 +31,7 @@ function Home() {
 
                     products?.map((product, index) => {
 
-                        const { name, description, image, price, category, brand } = product;
+                        const { name, description, image, price,  } = product;
 
                         return (<ProductCard
                             key={index}
@@ -39,8 +39,7 @@ function Home() {
                             description={description}
                             price={price}
                             image={image}
-                            category={category}
-                            brand={brand}
+                           
                         />)
 
                     })
