@@ -1,14 +1,18 @@
 import React from "react";
 import './ProductCard.css';
+import { Link } from "react-router-dom";
 
-function ProductCard({ name, description, price, image, }) {
+function ProductCard({id, name, description, price, image, }) {
     return (
         <div className="product-card">
             <img src={image} alt={name} className="product-card-image" />
             <h1 className="product-card-name">{name}</h1>
             <p className="product-card-price">₹ {price}/-</p>
 
-            <button className=" prouduct-card-button">buy now</button>
+            <Link to={`/buy/${id}`}
+                className=" prouduct-card-button">
+                buy now
+            </Link>
 
         </div>
     )

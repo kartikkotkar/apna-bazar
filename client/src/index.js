@@ -5,6 +5,7 @@ import Signup from './views/SingUpUser/Singup';
 import Home from './views/Home/Home';
 import "./index.css"
 import MyOrders from './views/MyOrders/MyOrders';
+import BuyPage from './views/BuyPage/BuyPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     {
         path: '/orders',
         element: <MyOrders />
+    },
+
+    {
+        path: '/buy/:id',
+        element: <BuyPage />
     }
     
   

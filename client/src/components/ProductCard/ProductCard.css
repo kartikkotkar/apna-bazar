@@ -34,5 +34,7 @@
     border: solid 1px gold;
     background-color: black;
     color: aliceblue;
+    text-decoration: none;
+    width: 10px;
 
 }

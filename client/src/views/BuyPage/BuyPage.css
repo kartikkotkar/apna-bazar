@@ -1,0 +1,33 @@
+.buy-product-image{
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 10px 30px;
+    box-shadow: 1px 1px 10px 1px rgb(169, 235, 169);
+}
+
+.buy-product-container{
+    padding: 20px 100px;
+}
+
+.buy-product-info{
+    display: flex;
+   
+}
+
+@media screen and (max-width: 760px){
+    .buy-product-image{
+      
+       
+        border-radius: 15px;
+        background-color: #fff;
+        margin: 10px;
+       
+    }
+
+    .buy-product-info{
+        flex-direction: column;
+    }
+    
+}
