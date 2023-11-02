@@ -1,0 +1,21 @@
+.product-card{
+    width: 150px;
+    height: 300px;
+    margin: 30px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 1px black;
+    box-shadow: 1px 1px 1px 1px  rgb(29, 30, 29);
+   
+  
+}
+
+.product-card-image{
+   width: 150px ;
+   height: 250px;
+   
+
+ 
+   
+}

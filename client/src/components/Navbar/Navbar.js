@@ -19,7 +19,7 @@ function Navbar() {
             </Link>
 
 
-            <div>
+            <div className="navbar-links-container"> 
                 <Link to="/Login" className="navbar-link">
                     Login
                 </Link>

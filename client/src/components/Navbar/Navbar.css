@@ -39,3 +39,31 @@
 .user-name{
     color: #fff;
 }
+
+@media screen and (max-width: 768px){
+.navbar{
+    display: block;
+}
+.navbar-links-container{
+    display: block;
+}
+
+.navbar-link{
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar-link:hover{
+    background-color: #fff;
+    padding: 0px;
+    color: white;
+    border-radius: 15px;
+}
+
+.user-name{
+    background-color: blue;
+}
+
+}
