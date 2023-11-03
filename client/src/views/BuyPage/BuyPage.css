@@ -1,6 +1,6 @@
 .buy-product-image{
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
     border-radius: 15px;
     background-color: #fff;
     margin: 10px 30px;
@@ -8,11 +8,12 @@
 }
 
 .buy-product-container{
-    padding: 20px 100px;
+  margin: 10px 30px;
 }
 
 .buy-product-info{
     display: flex;
+    
    
 }
 
@@ -44,22 +45,62 @@
 }
 
 .input-shipping-address{
-    margin-top: 50px;
+   margin-top: 30px;
+   margin-left: 15px;
     padding: 5px 10px;
     width: 300px;
-    font-size: 20px;
+    font-size: 15 px;
     border-color: gold;
     border-radius: 10px;
     
 }
 
 .btn-place-order{
-    display: block;
-   margin:auto;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
+   width: 100px;
+   padding: 5px;
+   margin-top: 20px;
+   margin-left: 100px;
+   border: solid 1px gold;
+   background-color: #fff;
+   color: rgb(69, 3, 3);
 
+}
+
+.card-menu-container{
+    background-color: #fff;
+   
+    box-shadow: 0px 0px 8px 0px rgb(96, 156, 76);
+    border-radius: 20px;
+    width: 350px;
+    height: 240px;
+    margin-top: 20px;
+}
+
+.card-menu-price{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+    color: rgb(75, 140, 77);
+}
+
+.card-menu-name{
+    font-size: 10px;
+    padding: 10px;
+    color: rgb(75, 140, 77);
+}
+
+.card-menu-description{
+    font-size: 10px;
+    padding: 10px;
+    color: rgb(75, 140, 77);
+}
+
+.shipping-charges{
+    font-size: 10px;
+    padding-left:20px;
+    padding-top: 5px;
+    margin-top: 10px;
+    color: rgb(75, 140, 77);
 }
 
 @media screen and (max-width: 760px){

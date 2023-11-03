@@ -1,6 +1,6 @@
 import React from "react";
 import "./BuyPage.css";
-import { json, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -11,6 +11,7 @@ function BuyPage() {
     const { id } = useParams();
     const [product, setProduct] = useState();
     const [quantity, setQuantity] = useState(1);
+    const [deliveryCharges, setDeliveryCharges] = useState(0)
     const [shippingAddress, setShippingAddress] = useState('');
 
     const loadProducts = async () => {
@@ -32,20 +33,20 @@ function BuyPage() {
         setQuantity(quantity - 1);
     }
 
-    const placeOrder = async () => { 
-        const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+    const placeOrder = async () => {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
         const orderDetails = {
             user: currentUser._id,
             product: id,
             quantity: quantity,
-            shippingAddress: shippingAddress
+            shippingAddress: shippingAddress,
+            deliveryCharges: deliveryCharges,
         }
 
         const response = await axios.post('/order', orderDetails);
-
         alert(response?.data?.message);
-        if(response?.data?.success) {
-            Window.location.href = '/orders';
+        if (response?.data?.success) {
+            window.location.href = "/orders"
         }
     }
 
@@ -64,10 +65,10 @@ function BuyPage() {
                     <div>
                         <img src={product?.image} alt={product?.name} className="buy-product-image" />
                     </div>
-                    <div>
-                        <h1>₹ {product?.price}</h1>
-                        <h1>{product?.name}</h1>
-                        <p>{product?.description}</p>
+                    <div className="card-menu-container">
+                        <h1 className="card-menu-price">₹ {product?.price}/-</h1>
+                        <h1 className="card-menu-name">{product?.name}</h1>
+                        <p className="card-menu-description">{product?.description}</p>
 
                         <div>
 
@@ -76,19 +77,30 @@ function BuyPage() {
                             <span className=" btn-increase-quantity" onClick={increaseQuantity}>➕</span>
 
                         </div>
+                        <div  className="shipping-charges">
+                            <input type="radio"
+                                value={0}
+                                onClick={(e) => { setDeliveryCharges(e.target.value) }}
+                                name="shippingCharges"/> free-shipping
+                            <input type="radio"
+                                value={500}
+                                onClick={(e) => { setDeliveryCharges(e.target.value) }}
+                                name="shippingCharges" /> fast-shipping
+                        </div>
+                        <div>{deliveryCharges}</div>
                         <input type="text"
                             placeholder="Enter Shipping address"
                             className="input-shipping-address"
                             value={shippingAddress}
                             onChange={(e) => setShippingAddress(e.target.value)}
                         />
-                    </div>
-
-                </div>
                 <button type="button" className="btn btn-place-order"
                     onClick={placeOrder}>
                     place Order
                 </button>
+                    </div>
+
+                </div>
             </div>
         </div>
     )
