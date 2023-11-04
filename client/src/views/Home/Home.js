@@ -6,6 +6,21 @@ import "./Home.css"
 
 function Home() {
     const [products, setProducts] = useState([]);
+    const [search, setSearch] = useState('')
+
+    const searchProducts = async () => {
+        if(search == ''){
+            loadProducts();
+            return;
+        }
+
+        const response = await axios.get(`products/search?q=${search}`);
+        setProducts(response?.data?.data);
+    }
+
+    useEffect(() => {
+        searchProducts();
+    }, [search])
 
     const loadProducts = async () => {
         try {
@@ -25,13 +40,23 @@ function Home() {
     return (
         <div>
             <Navbar />
+
+            <input type='text'
+                placeholder='Search'
+                className='serch-bar'
+                value={search}
+                onChange={(e) => {
+                    setSearch(e.target.value)
+                }} />
+
+
             <div className='product-counteainer'>
 
                 {
 
                     products?.map((product, index) => {
 
-                        const {_id, name, description, image, price,  } = product;
+                        const { _id, name, description, image, price, } = product;
 
                         return (<ProductCard
                             key={index}

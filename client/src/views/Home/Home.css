@@ -2,3 +2,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.serch-bar{
+    width: 70%;
+    display: block;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 5px;
+    border-radius: 20px;
+    padding: 2px 20px;
+    border: 1px solid gold;
+}

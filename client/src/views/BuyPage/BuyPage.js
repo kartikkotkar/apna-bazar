@@ -62,43 +62,45 @@ function BuyPage() {
             <div className="buy-product-container">
 
                 <div className="buy-product-info">
-                    <div>
-                        <img src={product?.image} alt={product?.name} className="buy-product-image" />
-                    </div>
-                    <div className="card-menu-container">
-                        <h1 className="card-menu-price">₹ {product?.price}/-</h1>
-                        <h1 className="card-menu-name">{product?.name}</h1>
-                        <p className="card-menu-description">{product?.description}</p>
-
+                   
                         <div>
-
-                            <span className="btn-decrease-quantity" onClick={decreaseQuantity}>➖</span>
-                            <span className="product-quantity-text">{quantity}</span>
-                            <span className=" btn-increase-quantity" onClick={increaseQuantity}>➕</span>
-
+                            <img src={product?.image} alt={product?.name} className="buy-product-image" />
                         </div>
-                        <div  className="shipping-charges">
-                            <input type="radio"
-                                value={0}
-                                onClick={(e) => { setDeliveryCharges(e.target.value) }}
-                                name="shippingCharges"/> free-shipping
-                            <input type="radio"
-                                value={500}
-                                onClick={(e) => { setDeliveryCharges(e.target.value) }}
-                                name="shippingCharges" /> fast-shipping
+                        <div className="card-menu-container">
+                            <h1 className="card-menu-price">₹ {product?.price}/-</h1>
+                            <h1 className="card-menu-name">{product?.name}</h1>
+                            <p className="card-menu-description">{product?.description}</p>
+
+                            <div>
+
+                                <span className="btn-decrease-quantity" onClick={decreaseQuantity}>➖</span>
+                                <span className="product-quantity-text">{quantity}</span>
+                                <span className=" btn-increase-quantity" onClick={increaseQuantity}>➕</span>
+
+                            </div>
+                            <div className="shipping-charges">
+                                <input type="radio"
+                                    value={0}
+                                    onClick={(e) => { setDeliveryCharges(e.target.value) }}
+                                    name="shippingCharges" /> free-shipping
+                                <input type="radio"
+                                    value={500}
+                                    onClick={(e) => { setDeliveryCharges(e.target.value) }}
+                                    name="shippingCharges" /> fast-shipping
+                            </div>
+                            <div>{deliveryCharges}</div>
+                            <input type="text"
+                                placeholder="Enter Shipping address"
+                                className="input-shipping-address"
+                                value={shippingAddress}
+                                onChange={(e) => setShippingAddress(e.target.value)}
+                            />
+                            <button type="button" className="btn btn-place-order"
+                                onClick={placeOrder}>
+                                place Order
+                            </button>
                         </div>
-                        <div>{deliveryCharges}</div>
-                        <input type="text"
-                            placeholder="Enter Shipping address"
-                            className="input-shipping-address"
-                            value={shippingAddress}
-                            onChange={(e) => setShippingAddress(e.target.value)}
-                        />
-                <button type="button" className="btn btn-place-order"
-                    onClick={placeOrder}>
-                    place Order
-                </button>
-                    </div>
+                    
 
                 </div>
             </div>

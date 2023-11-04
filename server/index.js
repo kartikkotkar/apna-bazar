@@ -256,11 +256,33 @@ app.get("/orders/user/:id", async(req, res) =>{
 });
 
 
-//PARH/order/satuse/status/:id
+//PATCH/order/satuse/status/:id
 app.patch("/order/status/:id", async(req, res) =>{
     const {id} = req.params;
-
     const {status} = req.body;
+
+    const STATUS_PRIORITY_MAP = {
+        pedding: 0,
+        shippes: 1,
+        dlivered: 2,
+        return: 3,
+        canceelled: 4,
+        rejected: 5
+    }
+
+    const order = await Order.findById(id);
+    const curreentStatus = order.status
+
+    const currentPriority = STATUS_PRIORITY_MAP(curreentStatus);
+    const newPriority = STATUS_PRIORITY_MAP[status];
+
+    if(currentPriority > newPriority){
+        return res.json({
+            success: false,
+            message: `${status} cannot be set once order is ${curreentStatus}`
+        });
+    }
+   
 
     await Order.updateOne({_id: id}, {$set: {status: status}});
 
